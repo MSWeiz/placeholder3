@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 20
+  controlID: 29
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 116
+  controlID: 98
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 19
+  controlID: 28
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 117
+  controlID: 99
   draggingID: 0
 --- !u!114 &12
 MonoBehaviour:
@@ -1140,7 +1140,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/MainMenu
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1148,16 +1148,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 75
   m_LastFolders:
-  - Assets/Scripts/MainMenu
+  - Assets
   m_LastFoldersGridSize: 75
   m_LastProjectPath: C:\Users\Vepra\Documents\GitHub\placeholder3\My project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 247a0000
-    m_LastClickedID: 31268
-    m_ExpandedIDs: 000000002e74000030740000327400003474000036740000387400003a7400003c7400003e74000040740000e6750000e8750000b47b000000ca9a3bffffff7f
+    m_SelectedIDs: f46c0000
+    m_LastClickedID: 27892
+    m_ExpandedIDs: 00000000ee6c0000f06c0000f26c0000f46c0000f66c0000f86c0000fa6c0000fc6c0000fe6c0000006d0000026d0000046d00001a6d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1185,7 +1185,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002e74000030740000327400003474000036740000387400003a7400003c7400003e74000040740000
+    m_ExpandedIDs: 00000000ee6c0000f06c0000f26c0000f46c0000f66c0000f86c0000fa6c0000fc6c0000fe6c0000006d0000026d0000046d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1212,7 +1212,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000121f0000ae640000b6640000b264000020280000ea2301003c7d0000647d0000f66e00000c94000002760000b2930000ee990000869b0000829b0000809b00007e9b0000d2850000fa850000fe850000ae330000f46e0000107f0000e63001008e6f0000ce6f00004cc40000a2790000b0790000d09700007eb2feffaa710000ea7c0000ca820000967d0000768300004e5e0100e0680100806f010000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1314,9 +1314,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 80bdfdff
-      m_LastClickedID: -148096
-      m_ExpandedIDs: 80bdfdff92c1fdffa2d3fdff5ed5fdffd6defdffb8dffdff7afbfdfff20bfeff000cfeff020cfeffae0cfeffd213feff7a14feffee64feff4076feff2077feff54bffeff30c0feff48c1feff58c2feff80c3feff76c4feff58c5feff1eccfefffc1cffffaa1dffff0843ffffa04fffff645fffffeee5ffff64f3ffffbaf4ffffcaf5ffff54f7ffff56f8ffff7afaffff3e800000ee80000020810000f681000058830000bc84000014850000268500007e850000f686000008870000608700005e8900006e890000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 2cfbffff466a0000a66a0000bc6a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1382,7 +1382,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 649
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -1429,7 +1429,7 @@ MonoBehaviour:
     m_CachedPref: 249
     m_ControlHash: 1412526313
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -148096
+  m_LastInspectedObjectInstanceID: 27324
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 1
