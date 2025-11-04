@@ -1,11 +1,14 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
+    public AudioClip shotSound;
     public GameObject weaponModel;    // Модель оружия
     public Transform shootPoint;      // Точка выстрела (например, перед стволом оружия)
     public float fireRate = 1f;       // Частота выстрелов (время между выстрелами)
+    public TMP_Text ammoText;
     public int maxAmmo = 6;           // Максимальное количество патронов в обойме
     private int currentAmmo;          // Текущее количество патронов
     private bool canFire = true;      // Можно ли стрелять (для контроля спам-лока)
@@ -193,10 +196,23 @@ public class WeaponController : MonoBehaviour
             HandleMiss();  // Обработка промаха
         }
 
+        PlayShotSound();
         // Включаем задержку между выстрелами
         Invoke("ResetFire", fireRate);
 
         DisplayAmmo();  // Выводим количество патронов в консоль после выстрела
+    }
+
+    void PlayShotSound()
+    {
+        if (shotSound != null)
+        {
+            AudioSource.PlayClipAtPoint(shotSound, shootPoint.position);  // Воспроизводим звук выстрела в точке shootPoint
+        }
+        else
+        {
+            Debug.LogWarning("Звук выстрела не присоединен!");
+        }
     }
 
     // Метод для обработки попадания в объект
@@ -284,5 +300,6 @@ public class WeaponController : MonoBehaviour
     void DisplayAmmo()
     {
         Debug.Log("Текущее количество патронов: " + currentAmmo + "/" + maxAmmo);
+        ammoText.text = "Патроны: " + currentAmmo + "/" + maxAmmo;
     }
 }
