@@ -1081,6 +1081,7 @@ MonoBehaviour:
   rayDistance: 100
   hitEffect: {fileID: 0}
   hitSound: {fileID: 0}
+  requireColtInInventory: 1
 --- !u!1 &362901018584924939
 GameObject:
   m_ObjectHideFlags: 0
@@ -20233,6 +20234,7 @@ GameObject:
   - component: {fileID: 5284322021899742659}
   - component: {fileID: 4676632280138350026}
   - component: {fileID: 1045931146011555187}
+  - component: {fileID: 4345654675659276141}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -20306,7 +20308,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 80
+  field of view: 89.3
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -20391,6 +20393,21 @@ MonoBehaviour:
   interactionRange: 3
   interactKey: 101
   dragDistance: 2
+  interactionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &4345654675659276141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8130569478823996148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8560489ee8982e34db88ee4092eac128, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8168731134122677240
 GameObject:
   m_ObjectHideFlags: 0
@@ -22614,6 +22631,8 @@ GameObject:
   - component: {fileID: 2785316234980563484}
   - component: {fileID: 6909757881459463738}
   - component: {fileID: 1517911933423495576}
+  - component: {fileID: 166924990443029248}
+  - component: {fileID: 22255844991105137}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -22630,8 +22649,8 @@ Transform:
   m_GameObject: {fileID: 9086870767827966039}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.154, y: 3.56, z: -5.539}
-  m_LocalScale: {x: 0.33, y: 0.33, z: 0.33}
+  m_LocalPosition: {x: 1.6347228, y: 0.767, z: -2.9762099}
+  m_LocalScale: {x: 0.10248811, y: 0.10248811, z: 0.10248811}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6534841645102878077}
@@ -22816,7 +22835,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 7
-  m_Radius: 0.5
+  m_Radius: 1.32
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -22851,8 +22870,37 @@ MonoBehaviour:
     m_Bits: 4294967295
   groundCheckDistance: 0.2
   standHeight: 2
-  crouchHeight: 1.2
+  crouchHeight: 1.6
   animator: {fileID: 987112033054530091}
+--- !u!114 &166924990443029248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9086870767827966039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190edb55260564b4594f9d8b43ffe07a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoFindComponents: 1
+  playerMovement: {fileID: 1517911933423495576}
+  mouseLook: {fileID: 8565120068661053239}
+  additionalComponents: []
+--- !u!114 &22255844991105137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9086870767827966039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4a391e2ac4502949a45ae3656c22346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryItems: []
 --- !u!1 &9092826866715443558
 GameObject:
   m_ObjectHideFlags: 0
