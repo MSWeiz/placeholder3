@@ -11,6 +11,26 @@ namespace Systems
         {
             // Check for key presses (excluding mouse buttons)
             CheckKeyPresses();
+
+            // NEW: Check for mouse movement
+            CheckMouseMovement();
+        }
+
+        private void CheckMouseMovement()
+        {
+            // Check if mouse has moved (position changed)
+            if (Mathf.Abs(Input.GetAxis("Mouse X")) > 0.001f || Mathf.Abs(Input.GetAxis("Mouse Y")) > 0.001f)
+            {
+                TriggerMouseMoved();
+            }
+        }
+
+        private void TriggerMouseMoved()
+        {
+            if (EventManager.Instance != null)
+            {
+                EventManager.Instance.TriggerMouseMoved();
+            }
         }
 
         private void CheckKeyPresses()

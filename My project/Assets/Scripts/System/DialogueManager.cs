@@ -211,12 +211,12 @@ namespace Systems
 
                 // Wait for left mouse button click to proceed to next line (or close if last line)
                 bool isLastLine = (lineIndex == entry.lines.Count - 1);
-                
-                while (!Input.GetMouseButtonDown(0)) // Wait until left mouse button is clicked
-                {
-                    yield return null;
-                }
-                
+
+                // Debounce: ensure current click (used to skip typing) is released first
+                yield return new WaitUntil(() => !Input.GetMouseButton(0));
+                // Now wait for a fresh click to advance
+                yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+
                 Debug.Log($"[DialogueManager] Left mouse button clicked. {(isLastLine ? "Closing dialogue." : "Proceeding to next line.")}");
             }
 
@@ -227,19 +227,17 @@ namespace Systems
 
         private IEnumerator WaitForEvent(string eventName)
         {
+            // Wait until EventManager exists
+            while (EventManager.Instance == null)
+            {
+                yield return null;
+            }
+
             bool eventTriggered = false;
             UnityAction eventHandler = () => { eventTriggered = true; };
 
             // Subscribe to the event
-            if (EventManager.Instance != null)
-            {
-                EventManager.Instance.SubscribeToEvent(eventName, eventHandler);
-            }
-            else
-            {
-                Debug.LogWarning("[DialogueManager] EventManager.Instance is null! Cannot wait for event.");
-                yield break;
-            }
+            EventManager.Instance.SubscribeToEvent(eventName, eventHandler);
 
             // Wait until event is triggered
             while (!eventTriggered)
@@ -247,7 +245,7 @@ namespace Systems
                 yield return null;
             }
 
-            // Unsubscribe from the event
+            // Unsubscribe from the event if still available
             if (EventManager.Instance != null)
             {
                 EventManager.Instance.UnsubscribeFromEvent(eventName, eventHandler);
