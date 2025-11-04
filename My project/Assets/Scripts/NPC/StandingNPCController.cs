@@ -3,22 +3,22 @@ using System.Collections;
 
 public class StandingNPCController : MonoBehaviour
 {
-    [Header("Настройки атаки")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ")]
     public float attackRange = 8f;
     public float attackSpeed = 4f;
     public float attackDamage = 15f;
     public float attackCooldown = 1.5f;
 
-    [Header("Настройки зрения")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ")]
     public float sightAngle = 120f;
     public float sightDistance = 10f;
     public LayerMask obstacleLayers = Physics.DefaultRaycastLayers;
 
-    [Header("Ссылки")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅ")]
     public Transform playerTarget;
     public string playerTag = "Player";
 
-    [Header("Визуальные эффекты")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     public Color normalColor = Color.blue;
     public Color alertColor = Color.yellow;
     public Color attackColor = Color.red;
@@ -31,8 +31,12 @@ public class StandingNPCController : MonoBehaviour
     private Vector3 initialPosition;
     private Quaternion initialRotation;
 
+    private Animator animator;
+
+
     void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         npcRenderer = GetComponent<Renderer>();
 
@@ -119,7 +123,10 @@ public class StandingNPCController : MonoBehaviour
         if (Vector3.Distance(transform.position, initialPosition) > 0.1f)
         {
             transform.position = Vector3.Lerp(transform.position, initialPosition, 2f * Time.deltaTime);
+            if (animator != null)
+                animator.SetBool("IsMoving", false);
         }
+        
     }
 
     void AttackBehavior()
@@ -140,6 +147,14 @@ public class StandingNPCController : MonoBehaviour
         {
             Vector3 moveDirection = directionToPlayer * attackSpeed * Time.deltaTime;
             transform.position += moveDirection;
+
+            if (animator != null)
+                animator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            if (animator != null)
+                animator.SetBool("IsMoving", false);  // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј "IsMoving" РІ 0, РєРѕРіРґР° NPC РЅРµ РґРІРёРіР°РµС‚СЃСЏ
         }
 
         if (distanceToPlayer <= 3f && Time.time >= lastAttackTime + attackCooldown)
@@ -151,7 +166,7 @@ public class StandingNPCController : MonoBehaviour
     void StartAttack()
     {
         isAttacking = true;
-        Debug.Log("NPC обнаружил игрока! Начинает атаку.");
+        Debug.Log("NPC пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ! пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.");
 
         if (npcRenderer != null)
             npcRenderer.material.color = alertColor;
@@ -160,7 +175,7 @@ public class StandingNPCController : MonoBehaviour
     void StopAttack()
     {
         isAttacking = false;
-        Debug.Log("NPC потерял игрока. Возвращается на позицию.");
+        Debug.Log("NPC пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.");
 
         if (npcRenderer != null)
             npcRenderer.material.color = normalColor;
@@ -173,7 +188,7 @@ public class StandingNPCController : MonoBehaviour
         if (playerTarget == null || Vector3.Distance(transform.position, playerTarget.position) > 3f)
             return;
 
-        Debug.Log("NPC атакует игрока! Урон: " + attackDamage);
+        Debug.Log("NPC пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ! пїЅпїЅпїЅпїЅ: " + attackDamage);
 
         PlayerController playerController = playerTarget.GetComponent<PlayerController>();
         if (playerController != null)
@@ -201,11 +216,11 @@ public class StandingNPCController : MonoBehaviour
     {
         if (canSeeNow)
         {
-            Debug.Log("Игрок обнаружен!");
+            Debug.Log("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!");
         }
         else
         {
-            Debug.Log("Игрок скрылся из виду");
+            Debug.Log("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ");
         }
     }
 
